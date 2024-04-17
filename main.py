@@ -13,7 +13,7 @@ class function:
     def __call__(self, input):
         return eval(self.data, input)
     
-    #----------------------------------------------------------------------------------------------------------------------------
+    #------------------------------------------------------------------------------------
     # Phương pháp dây cung (Secant)
     # Tham số đầu vào
     # a, b là hai giá trị lặp ban đầu
@@ -35,11 +35,12 @@ class function:
                 return x
             else:
                 # self(x) = self(y) != 0
-                print("Runtime Error: This method doesn't converge to the desired zero. Let's try to modify two initial values.") 
+                print("""Runtime Error: This method doesn't converge to the desired zero. 
+                      Let's try to modify two initial values.""") 
                 return '?'
         return (x + y)/2
     
-    #----------------------------------------------------------------------------------------------------------------------------
+    #------------------------------------------------------------------------------------
     # Phương pháp False Position
     # Tham số đầu vào
     # a, b là hai giá trị lặp ban đầu
@@ -73,7 +74,7 @@ class function:
             else:
                 return x
     
-    #----------------------------------------------------------------------------------------------------------------------------
+    #------------------------------------------------------------------------------------
     # Phương pháp Steffensen (Modified Newton Method)
     # Tham số đầu vào
     # x là giá trị lặp ban đầu
@@ -95,12 +96,13 @@ class function:
             elif z == y:
                 return y
             else:
-                print("Runtime Error: This method doesn't converge to the desired zero. Let's try to modify the initial value.") 
+                print("""Runtime Error: This method doesn't converge to the desired zero. 
+                      Let's try to modify the initial value.""") 
                 return '?'
 
-#================================================================================================================================
-#=======================================================  MAIN CODE  ============================================================
-#================================================================================================================================
+#========================================================================================
+#====================================  MAIN CODE  =======================================
+#========================================================================================
 
 # Tạo biến f có kiểu là function (class)
 f = function()
@@ -149,4 +151,3 @@ while 1:
         N = int(input("Nhập số lần lặp tối đa: "))
         print(f"Nghiệm của phương trình f(x) = x là x = {f.Steffensen(x, eps, N)}")
         os.system("pause")
-
