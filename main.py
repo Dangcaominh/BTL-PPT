@@ -136,7 +136,7 @@ while 1:
         print(f"Nghiệm của phương trình f(x) = 0 là x = {f.FalsiMethod(a, b, eps, N)}")
         os.system("pause")
     elif option == 5:
-        x = int(input("Nhập giá trị x: "))
+        x = float(input("Nhập giá trị x: "))
         eps = float(input("Nhập sai số: "))
         N = int(input("Nhập số lần lặp tối đa: "))
         print(f"Nghiệm của phương trình f(x) = x là x = {f.Steffensen(x, eps, N)}")
