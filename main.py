@@ -59,15 +59,19 @@ class function:
                 elif self(y) != self(x):
                     z = (x*self(y) - y*self(x))/(self(y) - self(x))
                     if self(z)*self(y) <= 0:
-                        x = y
-                        y = z
+                        x = min(y, z)
+                        y = max(y, z)
                     else: 
                     # self(z)*self(x) <= 0
-                        y = z
+                        y = max(x, z)
+                        x = min(x, z)
                 elif self(x) == 0:
                     # self(x) = self(y) = 0
                     return x
-            return (x + y)/2
+            if abs(self(x)) >= abs(self(y)):
+                return y
+            else:
+                return x
     
     #----------------------------------------------------------------------------------------------------------------------------
     # Phương pháp Steffensen (Modified Newton Method)
@@ -86,6 +90,10 @@ class function:
                     return p
                 else:
                     x = p
+            elif y == x:
+                return x
+            elif z == y:
+                return y
             else:
                 print("Runtime Error: This method doesn't converge to the desired zero. Let's try to modify the initial value.") 
                 return '?'
