@@ -128,6 +128,10 @@ class function:
                       Let's try to modify the initial value."""
                 )
                 return "?"
+        if abs(self(x)) >= abs(self(y)):
+            return y
+        else:
+            return x
 
 
 # ========================================================================================
@@ -181,5 +185,5 @@ while 1:
         x = float(input("Nhập giá trị x: "))
         eps = float(input("Nhập sai số: "))
         N = int(input("Nhập số lần lặp tối đa: "))
-        print(f"Nghiệm của phương trình f(x) = x là x = {f.ModifiedNewton(x, eps, N)}")
+        print(f"Nghiệm của phương trình f(x) = 0 là x = {f.ModifiedNewton(x, eps, N)}")
         os.system("pause")
